@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <th:block th:replace="~{fragments/meta}"></th:block>
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">CMS</title>
+
+    <th:block th:replace="~{fragments/styles}"></th:block>
+
+    <th:block th:replace="~{fragments/headScript}"></th:block>
+  </head>
+
+  <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
+    <script>
+      NProgress.configure({ showSpinner: false });
+      NProgress.start();
+    </script>
+
+    <!-- ====================================
+    ——— WRAPPER
+    ===================================== -->
+    <div class="wrapper">
+      <!-- ====================================
+          ——— LEFT SIDEBAR WITH OUT FOOTER
+        ===================================== -->
+      <aside th:replace="~{fragments/asidebar}"></aside>
+
+      <!-- ====================================
+        ——— PAGE WRAPPER
+        ===================================== -->
+      <div class="page-wrapper">
+        <!-- Header -->
+        
+        <div th:replace="~{fragments/header}"></div>
+
+        <!-- Close header -->
+        <!-- ====================================
+          ——— CONTENT WRAPPER
+          ===================================== -->
+        
+          <main class="content-wrapper">
+            <div class="content" layout:fragment="content">
+                <!-- child layout -->
+            </div>
+          </main>
+
+
+      </div>
+      <!-- End Page Wrapper -->
+    </div>
+    <!-- End Wrapper -->
+
+    <!-- Javascript -->
+    <th:block th:replace="~{fragments/script}"></th:block>
+
+    <th:block layout:fragment="scripts">
+        <!-- Child script -->
+    </th:block>
+    
+    <th:block  th:replace="~{fragments/bottomScript}"></th:block>
+    
+  </body>
+</html>
